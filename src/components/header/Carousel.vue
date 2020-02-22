@@ -1,25 +1,23 @@
 <template>
   <div id="carousel">
-      <img :src="images[currentImage]" alt="" class="carousel">
-      <!-- <img :src="nextIcon" alt="" class="absolute"> -->
+      <img :src="photos.carrousel[currentImage]" alt="" class="carousel">
   </div>
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
     data(){
         return{
             nextIcon: require('@/assets/next.png'),
-            images:[
-               require('@/assets/carousel1.jpeg'),
-               require('@/assets/carousel2.jpeg')
-            ],
             currentImage:0
             }
     },
     mounted(){
-        this.start()
+        this.start();
+        // this.loadImages()
     },
+    computed:mapState(['photos']),
     methods:{
         start(){
             setInterval(()=>{
@@ -30,7 +28,16 @@ export default {
                 }
             },5000)
         }
-    }
+        // loadImages(){
+        //     fetch("http://localhost:3000/carrousel").then(result=>{
+        //         result.json().then(data=>{
+        //             this.images=data
+        //         })
+        //         console.log(result)
+        //         }
+        //     )
+        // }
+    },
 }
 </script>
 
