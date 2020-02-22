@@ -1,20 +1,25 @@
 <template>
-  <div id="menu-bar">
-    <h5>TERBARU</h5>
-    <h5>HIJAB^</h5>
-    <h5>PAKAIAN^</h5>
-    <h5>AKSESORIS^</h5>
-    <h5>HIJUP EKLUSIF</h5>
-    <h5>BRANDS</h5>
-    <h5>SALE</h5>
+  <div id="menu-bar" class="header-item">
+    <MenuBarItem hideDropdown>TERBARU</MenuBarItem>
+    <MenuBarItem>HIJAB</MenuBarItem>
+    <MenuBarItem>PAKAIAN</MenuBarItem>
+    <MenuBarItem>AKSESORIS</MenuBarItem>
+    <MenuBarItem>HIJUP EKLUSIF</MenuBarItem>
+    <MenuBarItem>BRANDS</MenuBarItem>
+    <MenuBarItem hideDropdown activeMenu>SALE</MenuBarItem>
   </div>
 </template>
 
 <script>
-export default {};
+import MenuBarItem from "./menubar/MenuBarItem.vue";
+export default {
+  components: {
+    MenuBarItem
+  }
+};
 </script>
 
-<style>
+<style scoped>
 #menu-bar {
   display: flex;
   align-items: center;

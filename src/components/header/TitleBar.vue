@@ -1,19 +1,19 @@
 <template>
-  <div id="title-bar">
+  <div id="title-bar" class="header-item">
     <h2>H I J U P</h2>
     <input type="search" name id placeholder="Search" />
     <SocialLogin class="p"></SocialLogin>
     <img :src="idr" alt="idr" id="idr" />
     <p>IDR</p>
-    <p class="p">|</p>
+    <p>|</p>
     <p>Sign In</p>
-    <p class="p">|</p>
+    <p>|</p>
     <p>Register</p>
   </div>
 </template>
 
 <script>
-import SocialLogin from "@/components/header/titleBar/SocialLogin.vue";
+import SocialLogin from "@/components/header/titlebar/SocialLogin.vue";
 export default {
   components: {
     SocialLogin
@@ -28,13 +28,8 @@ export default {
 #title-bar {
   display: flex;
   align-items: center;
-  width: 100%;
-  justify-content: space-evenly;
 }
 #idr {
   padding-right: 20px;
-}
-.p {
-  padding: 0px 20px 0px 20px;
 }
 </style>
