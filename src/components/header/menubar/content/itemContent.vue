@@ -1,24 +1,10 @@
 <template>
   <div class="content">
       <div class="col">
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
+            
       </div>
       <div class="col">
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
-            <div class="item">Ciput</div>
+           
       </div>
     </div>
 </template>

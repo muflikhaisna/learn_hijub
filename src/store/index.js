@@ -4,13 +4,39 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {//barang2 yg dijual
-    photos:{carrousel:["http://127.0.0.1:8082/carousel2.jpeg"]}
+  actions: {//ambilDataDariBackend
+    ambilDataDariBackend(state){
+      fetch("http://192.168.1.8:3000/homepage").then(result=>{//pasar
+        result.json().then(dataObject=>{
+          state.commit("taruhDataKeGudang",dataObject)
+          // state.gudang = dataObject
+        })
+      })
+    }
   },
-  mutations: {//kasir
-
+  
+  mutations: {//penjaga gudang, tukang
+    taruhDataKeGudang(state,value){
+      state.gudang=value
+    }
   },
-  actions: {
+  
+  state: {//gudang barang
+    gudang:{
+      "header": {
+        "menus": [],
+        "carrousel": []
+      },
+      "content": [],
+      "info": {}
+    }
+  },
+   
+  getters:{//toko, buat liat dt
+    lihatMenu(state){return state.gudang.header.menus},
+    lihatCarrousel(state){return state.gudang.header.carrousel},
+    lihatContent(state){return state.gudang.content},
+    lihatInfo(state){return state.gudang.info},
   },
   modules: {
   }

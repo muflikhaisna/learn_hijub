@@ -4,24 +4,29 @@
   @mouseleave="showContent=false"
   >
     <div id="button">
-      <h5  :class={active:activeMenu}>
+      <h5 :class={active:activeMenu}>
         <slot></slot>
       </h5>
-      <img :src="downIcon" v-show="!hideDropdown" />
+      <img :src="downIcon" v-show="dropDownItems"/>
     </div>
-    <ItemContent class="content" v-show="showContent"></ItemContent>
+    <div class="content">
+      <div
+      class="item" 
+      v-show="showContent" 
+      v-for="(items,index) in dropDownItems" 
+      :key="index">
+        {{items}}
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import ItemContent from './content/itemContent.vue'
 export default {
-  components:{
-    ItemContent
-  },
+
   props: {
-    hideDropdown: Boolean,
-    activeMenu: Boolean
+    activeMenu: Boolean,
+    dropDownItems: Array
   },
   methods:{
 
@@ -53,6 +58,16 @@ h5:hover{
   border-bottom: 2px solid;
 }
 .content{
-  position: absolute
+  position: absolute;
+  background-color: white;
+    border-radius: 5px;
+    box-shadow: 10px 5px 5px rgba(0,0,0,0.2);
+}
+
+.item{
+    padding: 10px
+}
+.item:hover{
+    background-color: rgba(0,0,0,0.2)
 }
 </style>
